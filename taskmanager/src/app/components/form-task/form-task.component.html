@@ -1,0 +1,32 @@
+<article class="container-fluid">
+    <h2>Add your task</h2>
+    <form class="form" [formGroup]="form" (ngSubmit)="submit()">
+        <section class="mb-3">
+            <h5>Name</h5>
+            <label for="name" class="d-none">Name</label>
+            <input type="text" name="name" formControlName="name">
+            @if (nameHaveErrors) {
+                <p class="text-danger">Validate your name</p>
+            }
+        </section>
+        <section class="mb-3">
+            <h5>Priority</h5>
+            <label for="priority" class="d-none">Priority</label>
+            <input type="radio" name="priority" [value]="priorityEnum.LOW" formControlName="priority"> Low
+            <input type="radio" name="priority" [value]="priorityEnum.MEDIUM" formControlName="priority"> Medium
+            <input type="radio" name="priority" [value]="priorityEnum.HIGH" formControlName="priority"> High
+        </section>
+        <section class="mb-3">
+            <h5>Description</h5>
+            <label for="description" class="d-none">Description</label>
+            <textarea name="description" formControlName="description"></textarea>
+            @if (descriptionHaveErrors) {
+                <p class="text-danger">Validate your description</p>
+            }
+        </section>
+        <section class="mb-4">
+            <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Add</button>
+        </section>
+    </form>
+
+</article>
