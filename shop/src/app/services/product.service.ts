@@ -15,7 +15,7 @@ export interface Product {
   providedIn: 'root'
 })
 export class ProductService {
-  private readonly baseURL: string = 'http://localhost:8083/item';
+  private readonly baseURL: string = '/api/item';
 
   private http: HttpClient = inject(HttpClient);
 
